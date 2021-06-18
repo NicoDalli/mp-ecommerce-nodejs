@@ -55,7 +55,7 @@ exports.detail = async function(req, res) {
 } 
 
 exports.success = function(req, res) {
-    console.info(new Date(), "SUCCESS SCREEN DATA: " + req.query);
+    console.info(new Date(), "SUCCESS SCREEN DATA: " + JSON.stringify(req.query));
 
     res.render('success', {
         paymentId: req.query.payment_id,
@@ -65,7 +65,7 @@ exports.success = function(req, res) {
 }
 
 exports.ipnHandler = function(req, res) {
-    console.info(new Date(), "IPN HANDLER BODY: " + req.body);
+    console.info(new Date(), "IPN HANDLER BODY: " + JSON.stringify(req.body));
 
     res.sendStatus(200);
 }
