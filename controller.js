@@ -1,5 +1,6 @@
 const mercadopago = require('mercadopago');
 const mpConfig = require('./config');
+const config = require("konphyg")(__dirname + "/configs")("main");
 
 exports.detail = async function(req, res) {
     let preferenceId = null;
@@ -9,7 +10,7 @@ exports.detail = async function(req, res) {
             id: 1234,
             title: req.query.title,
             description: "Dispositivo móvil de Tienda e-commerce",
-            picture_url: req.query.img,
+            picture_url: `${config.baseUrl}/${req.query.img}`,
             quantity: +req.query.unit,
             unit_price: +req.query.price,
             category_id: "phones", 
